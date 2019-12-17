@@ -21,7 +21,7 @@ Before you run the server you need to setup the database, in order to do so you 
 
 Instead of <YOUR_MONGO_URI> you should add the URI for your Mongo DataBase, we use Mongo Atlas.
 
-To run the server you have with nodemon:
+To run the server with nodemon:
 
 ```
 cd _server
