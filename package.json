@@ -1,0 +1,13 @@
+{
+	"name": "anonymous-posts",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"installDep": "npm i --prefix _server && npm i --prefix _client"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}
