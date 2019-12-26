@@ -3,11 +3,18 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
+	"jest": {
+		"testEnvironment": "node"
+	},
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "jest",
+		"test:watch": "jest:watch",
 		"installDep": "npm i --prefix _server && npm i --prefix _client"
 	},
 	"keywords": [],
 	"author": "",
-	"license": "ISC"
+	"license": "ISC",
+	"devDependencies": {
+		"jest": "^24.9.0"
+	}
 }
