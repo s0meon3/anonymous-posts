@@ -4,3 +4,6 @@ _server/package-lock.json
 
 _client/node_modules/*
 _client/package-lock.json
+
+node_modules/*
+package-lock.json
