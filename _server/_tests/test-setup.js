@@ -41,8 +41,11 @@ module.exports = {
 			});
 		});
 
-		afterAll(async () => {
+		afterEach(async () => {
 			await removeAllCollections();
+		});
+
+		afterAll(async () => {
 			await dropAllCollections();
 			await mongoose.connection.close();
 		});

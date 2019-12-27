@@ -1,5 +1,8 @@
 const app = require('./server');
 const mongoose = require('mongoose');
+
+//Set config
+process.env['NODE_CONFIG_DIR'] = '../config';
 const config = require('config');
 
 //DB Config
