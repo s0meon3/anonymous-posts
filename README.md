@@ -1,6 +1,6 @@
 # ANONYMOUS POSTS
 
-Anonymous Posts is a open-source project that is friendly for begginers. It´s built upon the MERN Stack and it´s currently under constructions. The basic server is already built and the we´re working on the client side.
+Anonymous Posts is a open-source project that is friendly for begginers. It´s built upon the MERN Stack and it´s currently under constructions. The basic server is already built and we´re working on the client side.
 
 ## Setup
 
