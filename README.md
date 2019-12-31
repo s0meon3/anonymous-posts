@@ -13,8 +13,8 @@ npm run installDep
 To be able to test and run the server you have to set some enviroment variables, to do so in the runtime we use 'dotenv' package. Create a file named `.env` and write the following contents:
 
 ```
-MONGO_URI: <YOUR_MONGO_URI>
-MONGO_TEST_URI: <YOUR_TEST_MONGO_URI>
+MONGO_URI=<YOUR_MONGO_URI>
+MONGO_TEST_URI=<YOUR_TEST_MONGO_URI>
 ```
 
 Instead of <YOUR_MONGO_URI> and <YOUR_TEST_MONGO_URI> you should add the URI for your Mongo DataBase and for other Mongo DataBase (for testing), respectively, we use Mongo Atlas.
