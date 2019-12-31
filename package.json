@@ -7,8 +7,7 @@
 		"testEnvironment": "node"
 	},
 	"scripts": {
-		"test": "jest",
-		"test:watch": "jest:watch",
+		"test": "jest --setupFiles dotenv/config",
 		"installDep": "npm i --prefix _server && npm i --prefix _client"
 	},
 	"keywords": [],
@@ -16,5 +15,8 @@
 	"license": "ISC",
 	"devDependencies": {
 		"jest": "^24.9.0"
+	},
+	"dependencies": {
+		"dotenv": "^8.2.0"
 	}
 }

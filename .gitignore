@@ -1,9 +1,10 @@
-_server/node_modules/*
-_server/config/*
-_server/package-lock.json
+server/node_modules/*
+server/package-lock.json
 
-_client/node_modules/*
-_client/package-lock.json
+client/node_modules/*
+client/package-lock.json
 
 node_modules/*
 package-lock.json
+
+.env

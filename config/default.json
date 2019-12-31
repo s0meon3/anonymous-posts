@@ -1,4 +1,0 @@
-{
-	"mongoURI": "mongodb+srv://heyhey:hahahey123@cluster0-bkagf.mongodb.net/test?retryWrites=true&w=majority",
-	"mongoTestURI": "mongodb+srv://heyheyhey:hahahey123@cluster0-n9vmk.mongodb.net/test?retryWrites=true&w=majority"
-}

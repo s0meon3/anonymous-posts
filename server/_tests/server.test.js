@@ -1,12 +1,12 @@
-const config = require('config');
+require('dotenv').config();
 const Post = require('../models/Post');
 const { setupDB } = require('./test-setup');
 const app = require('../server');
 const supertest = require('supertest');
 
 const request = supertest(app);
-
-setupDB(config.get('mongoTestURI'));
+console.log(process.env.MONGO_TEST_URI);
+setupDB(process.env.MONGO_TEST_URI);
 
 describe('Tests all endpoints.', () => {
 	it('Gets at the /api/posts endpoint, also tests if test DB is empty.', async done => {

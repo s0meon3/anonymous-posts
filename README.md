@@ -10,14 +10,11 @@ Fork the repository and clone it in your machine. Cd into the repo and then run 
 npm run installDep
 ```
 
-Before you run the server you need to setup the database, in order to do so you have to create a folder named `config` in the main folder of the project and a file named `default.json`. In the `default.json` file you have to add:
+To be able to test and run the server you have to set some enviroment variables, to do so in the runtime we use 'dotenv' package. Create a file named `.env` and write the following contents:
 
 ```
-{
-	"mongoURI": <YOUR_MONGO_URI>
-	"mongoTestURI": <YOUR_TEST_MONGO_URI>
-}
-
+MONGO_URI: <YOUR_MONGO_URI>
+MONGO_TEST_URI: <YOUR_TEST_MONGO_URI>
 ```
 
 Instead of <YOUR_MONGO_URI> and <YOUR_TEST_MONGO_URI> you should add the URI for your Mongo DataBase and for other Mongo DataBase (for testing), respectively, we use Mongo Atlas.
@@ -25,14 +22,14 @@ Instead of <YOUR_MONGO_URI> and <YOUR_TEST_MONGO_URI> you should add the URI for
 To run the server with nodemon:
 
 ```
-cd _server
+cd server
 npm run devServer
 ```
 
 To run the server without nodemon:
 
 ```
-cd _server
+cd server
 npm run start
 ```
 

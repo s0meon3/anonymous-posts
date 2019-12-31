@@ -2,12 +2,11 @@ const app = require('./server');
 const mongoose = require('mongoose');
 
 //Set config
-process.env['NODE_CONFIG_DIR'] = '../config';
-const config = require('config');
+require('dotenv').config({ path: '../.env' });
 
 //DB Config
 console.log('Getting MongoURI...');
-const db = config.get('mongoURI');
+const db = process.env.MONGO_URI;
 
 //Connect to Mongo
 console.log('Connecting to MongoDB...');
