@@ -9,7 +9,7 @@ class App extends React.Component {
 		return (
 			<div className='container'>
 				<NavBar className='navbar' />
-				<Main />
+				<Main className='main' />
 			</div>
 		);
 	}

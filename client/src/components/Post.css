@@ -1,0 +1,28 @@
+.postContainer {
+	border: 5px solid #914ce0;
+	background-color: #fff;
+
+	border-radius: 1rem;
+
+	padding: 1vw;
+	margin: 3vw;
+}
+
+.heart {
+	padding: 1vw;
+	background-color: #80bdff;
+	border: 3px solid #80bdff;
+	border-radius: 1rem;
+}
+
+.number {
+	font-weight: bold;
+}
+
+hr {
+	border: 2px dashed #914ce0;
+}
+
+p {
+	font-size: 1.3em;
+}

@@ -13,7 +13,7 @@ const PostSchema = new Schema({
 		required: true,
 		maxlength: 1000
 	},
-	claps: {
+	hearts: {
 		type: Number,
 		default: 0
 	},

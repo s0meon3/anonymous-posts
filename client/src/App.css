@@ -9,17 +9,13 @@ body {
 
 .container {
 	display: grid;
-	grid-template: 12vh 88vh/10vw 80vw 10vw;
+	grid-template: 12vh 88vh;
 
 	grid-template-areas:
-		'n n n'
-		'. m .';
+		'n'
+		'm';
 }
 
 .navbar {
 	grid-area: n;
-}
-
-.main {
-	grid-area: m;
 }

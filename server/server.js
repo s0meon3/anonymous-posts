@@ -14,8 +14,8 @@ app.use('/api/posts', postsRouter);
 const commentsRouter = require('./routes/api/comments');
 app.use('/api/comments', commentsRouter);
 
-const clapsRouter = require('./routes/api/claps');
-app.use('/api/claps', clapsRouter);
+const heartsRouter = require('./routes/api/hearts');
+app.use('/api/hearts', heartsRouter);
 
 const homeRouter = require('./routes/api/home/home');
 app.use('/api/home', homeRouter);
