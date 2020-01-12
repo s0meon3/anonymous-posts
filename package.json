@@ -10,7 +10,8 @@
 		"test": "jest --setupFiles dotenv/config",
 		"installDep": "npm i --prefix _server && npm i --prefix _client",
 		"dev": "concurrently \"npm run devServer --prefix server\" \"npm run start --prefix client\"",
-		"start": "npm run start --prefix server"
+		"start": "npm run installDep && npm run start --prefix server",
+		"heroku-postbuild": "cd client && npm run build"
 	},
 	"keywords": [],
 	"author": "",
