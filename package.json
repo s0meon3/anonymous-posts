@@ -8,7 +8,9 @@
 	},
 	"scripts": {
 		"test": "jest --setupFiles dotenv/config",
-		"installDep": "npm i --prefix _server && npm i --prefix _client"
+		"installDep": "npm i --prefix _server && npm i --prefix _client",
+		"dev": "concurrently \"npm run devServer --prefix server\" \"npm run start --prefix client\"",
+		"start": "npm run start --prefix server"
 	},
 	"keywords": [],
 	"author": "",
@@ -17,6 +19,7 @@
 		"jest": "^24.9.0"
 	},
 	"dependencies": {
+		"concurrently": "^5.0.2",
 		"dotenv": "^8.2.0"
 	}
 }
