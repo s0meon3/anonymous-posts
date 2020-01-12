@@ -11,7 +11,7 @@
 		"installDep": "npm i --prefix _server && npm i --prefix _client",
 		"dev": "concurrently \"npm run devServer --prefix server\" \"npm run start --prefix client\"",
 		"start": "npm run installDep && npm run start --prefix server",
-		"heroku-postbuild": "cd client && npm run build"
+		"heroku-postbuild": "cd client && npm i --only=dev && npm i && npm run build"
 	},
 	"keywords": [],
 	"author": "",
