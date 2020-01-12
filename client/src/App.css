@@ -19,3 +19,7 @@ body {
 .navbar {
 	grid-area: n;
 }
+
+.main {
+	grid-area: m;
+}
