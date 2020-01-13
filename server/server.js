@@ -24,9 +24,11 @@ app.use('/api/hearts', heartsRouter);
 const homeRouter = require('./routes/api/home/home');
 app.use('/api/home', homeRouter);
 
-//Greetings
-app.get('*', (req, res) => {
-	res.sendFile(path.resolve(__dirname, '../client/build/index.html'));
-});
+//If in production enviroment, execute this code.
+//This will make both client and server run under the same domain, just different routes.
+process.env.NODE_ENV === 'production' &&
+	app.get('*', (req, res) => {
+		res.sendFile(path.resolve(__dirname, '../client/build/index.html'));
+	});
 
 module.exports = app;
