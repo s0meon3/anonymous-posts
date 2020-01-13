@@ -1,5 +1,7 @@
 # ANONYMOUS POSTS
 
+![](https://github.com/s0meon3/anonymous-posts/workflows/Node%20Test/badge.svg)
+
 Anonymous Posts is a open-source project that is friendly for begginers. It´s built upon the MERN Stack and it´s currently under constructions. The basic server is already built and we´re working on the client side.
 
 ## Setup
