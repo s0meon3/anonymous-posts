@@ -5,7 +5,7 @@ const app = require('../server');
 const supertest = require('supertest');
 
 const request = supertest(app);
-setupDB(process.env.MONGO_TEST_URI);
+setupDB(process.env.MONGO_TEST_URI || 'mongodb+srv://heyheyhey:hahahey123@cluster0-n9vmk.mongodb.net/test?retryWrites=true&w=majority');
 
 describe('Tests all endpoints.', () => {
 	it('Gets at the /api/posts endpoint, also tests if test DB is empty.', async done => {
@@ -21,11 +21,11 @@ describe('Tests all endpoints.', () => {
 
 	it('Posts at the /api/posts to create a new post.', async done => {
 		const postRes = await request.post('/api/posts').send({
-			title: 'tEst tITle',
+			title: 'pOSt 1!! hA hA',
 			body: 'Hey! Post body here!'
 		});
 		const expectedPost = {
-			title: 'Test Title',
+			title: 'Post 1!! Ha Ha',
 			body: 'Hey! Post body here!',
 			hearts: 0
 		};

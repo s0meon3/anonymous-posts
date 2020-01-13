@@ -19,10 +19,18 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
 	//Capitalize all words in the title
 	const capAllWords = title => {
+		const alphabet = [...Array(26).keys()].map(code =>
+			String.fromCharCode(code + 97)
+		);
+
 		return title
 			.toLowerCase()
 			.split(' ')
-			.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+			.map(word =>
+				alphabet.includes(word.charAt(0))
+					? word.charAt(0).toUpperCase() + word.slice(1)
+					: word
+			)
 			.join(' ');
 	};
 

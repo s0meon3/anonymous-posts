@@ -33,7 +33,7 @@ router.put('/:postId', (req, res) => {
 				);
 		})
 		.catch(err =>
-			res.status(404).json({ success: false, error: `Post doesn´t exist` })
+			res.status(404).json({ success: false, error: 'Post doesn´t exist' })
 		);
 });
 
