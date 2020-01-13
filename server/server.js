@@ -23,11 +23,9 @@ app.use('/api/home', homeRouter);
 
 //If in production enviroment, execute this code.
 //This will make both client and server run under the same domain, just different routes.
-console.log(process.env.NODE_ENV);
 process.env.NODE_ENV === 'production' &&
 	app.use(express.static(path.resolve(__dirname, '../client/build'))) &&
 	app.get('*', (req, res) => {
-		console.log('haha');
 		res.sendFile(path.resolve(__dirname, '../client/build/index.html'));
 	});
 
