@@ -8,9 +8,6 @@ const app = express();
 //Bodyparser Middleware
 app.use(express.json());
 
-//Static files
-app.use(express.static(path.resolve(__dirname, '../client/build')));
-
 //Use Routes
 const postsRouter = require('./routes/api/posts');
 app.use('/api/posts', postsRouter);
@@ -26,9 +23,12 @@ app.use('/api/home', homeRouter);
 
 //If in production enviroment, execute this code.
 //This will make both client and server run under the same domain, just different routes.
+console.log(process.env.NODE_ENV);
 process.env.NODE_ENV === 'production' &&
 	app.get('*', (req, res) => {
+		console.log('haha');
 		res.sendFile(path.resolve(__dirname, '../client/build/index.html'));
-	});
+	}) &&
+	app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 module.exports = app;
