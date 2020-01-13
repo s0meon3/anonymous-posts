@@ -21,6 +21,8 @@ jobs:
     - name: npm install and test
       run: |
         npm install
+        npm install --prefix server
+        npm install --prefix client
         npm test
       env:
         CI: true
