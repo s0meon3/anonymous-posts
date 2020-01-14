@@ -8,67 +8,7 @@ import PostList from './PostList';
 import Loading from './Loading';
 import PostForm from './PostForm';
 
-const content = [
-	{
-		_id: 1,
-		title: 'Post 1',
-		body: 'Hey, Post1 here! Really small tho. No claps, no comments...',
-		hearts: 0,
-		comments: []
-	},
-	{
-		_id: 2,
-		title: 'Post 2',
-		body:
-			'Hey, Post2 here! A little bigger than the other one. 7 claps, 1 comment... Thank you for taking a look at the repo',
-		hearts: 7,
-		comments: [
-			{
-				body: 'Comment 1!'
-			}
-		]
-	},
-	{
-		_id: 3,
-		title: 'Post 3, lalala',
-		body:
-			'Hey, Post3 here! Bigger than the others but really, really repetitive. 22 claps, 3 comments.\nReally, I have 22 claps and 3 comments, lololololol. \nHeard me? 22 claps and 3 comments!!!!!!',
-		hearts: 22,
-		comments: [
-			{
-				body: 'Comment 1, really small...'
-			},
-			{
-				body:
-					'Comment 2, really small... Buuuut not that small hahaha. 123321 call me.'
-			},
-			{
-				body:
-					'Comment 3, the biggest one. I have a lot of words see????? Yeah, I do have a lot of chars!\nAnd a line break...'
-			}
-		]
-	},
-	{
-		_id: 4,
-		title: 'Post 4, lalala',
-		body:
-			'Hey, Post 4 here! Bigger than the others but really, really repetitive. 22 claps, 3 comments.\nReally, I have 22 claps and 3 comments, lololololol. \nHeard me? 22 claps and 3 comments!!!!!!',
-		hearts: 22,
-		comments: [
-			{
-				body: 'Comment 1, really small...'
-			},
-			{
-				body:
-					'Comment 2, really small... Buuuut not that small hahaha. 123321 call me.'
-			},
-			{
-				body:
-					'Comment 3, the biggest one. I have a lot of words see????? Yeah, I do have a lot of chars!\nAnd a line break...'
-			}
-		]
-	}
-];
+import api from '../helpers/axiosset';
 
 export default class Main extends Component {
 	constructor(props) {
@@ -76,15 +16,19 @@ export default class Main extends Component {
 
 		this.state = {
 			showing: 'posts',
-			content: content
+			content: []
 		};
 
 		this.toogleShowing = this.toogleShowing.bind(this);
 		this.postHandler = this.postHandler.bind(this);
+		this.formSubmit = this.postHandler.bind(this);
 	}
 
 	componentDidMount() {
-		console.log('fetching api...');
+		api
+			.get('/posts')
+			.then(res => this.setState({ content: res.data }))
+			.catch(err => alert(err));
 	}
 
 	toogleShowing = change => {
@@ -101,30 +45,42 @@ export default class Main extends Component {
 		this.setState({ content: contentCopy });
 	};
 
+	formSubmit = post => {
+		api
+			.post('/posts', {
+				post
+			})
+			.then(res =>
+				this.setState({ content: [res.data, ...this.state.content] })
+			)
+			.catch(err => alert(err));
+	};
+
 	render() {
-		switch (this.state.showing) {
-			case 'posts':
-				return (
-					<div className='incontainer'>
-						<PostList
-							className='showing'
-							content={this.state.content}
-							postHandler={this.postHandler}
-						/>
-						<button
-							className='button'
-							onClick={() => this.toogleShowing('form')}
-						>
-							<FaPlus />
-						</button>
-					</div>
-				);
-			case 'loading':
-				return <Loading />;
-			case 'form':
-				return <PostForm />;
-			default:
-				return <p>Something went wrong...</p>;
-		}
+		return (
+			<div className='mainContainer'>
+				{
+					{
+						posts: (
+							<div className='incontainer'>
+								<PostList
+									className='showing'
+									content={this.state.content}
+									postHandler={this.postHandler}
+								/>
+								<button
+									className='button'
+									onClick={() => this.toogleShowing('form')}
+								>
+									<FaPlus />
+								</button>
+							</div>
+						),
+						form: <PostForm onSubmit={this.formSubmit} />,
+						loading: <Loading />
+					}[this.state.showing]
+				}
+			</div>
+		);
 	}
 }

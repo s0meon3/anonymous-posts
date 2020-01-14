@@ -5,8 +5,9 @@ import Post from './Post';
 class PostList extends Component {
 	render() {
 		const { content, postHandler } = this.props;
+
 		return (
-			<div className='list'>
+			<div>
 				<ul>
 					{content.map((post, index) => (
 						<Post

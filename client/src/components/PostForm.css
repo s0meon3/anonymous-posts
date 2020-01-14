@@ -1,0 +1,52 @@
+form {
+	width: 95%;
+	margin: 30px auto;
+}
+
+form label {
+	margin: 30px 0;
+	display: block;
+}
+
+input[type='text'] {
+	width: 100%;
+	padding: 20px 15px;
+	border: none;
+	border-radius: 16px;
+	font-size: large;
+	font-weight: 600;
+	outline: none;
+}
+
+textarea {
+	resize: none;
+	width: 100%;
+	padding: 10px 15px;
+	padding-bottom: 25%;
+	font-size: large;
+	border: none;
+	border-radius: 16px;
+	outline: none;
+}
+
+input[type='submit'] {
+	width: 100%;
+	border: none;
+	border-radius: 16px;
+	color: whitesmoke;
+	background-color: #80bdff;
+	padding: 30px;
+	font-size: x-large;
+	outline: none;
+}
+
+input[type='submit']:focus {
+	background-color: #914ce0;
+}
+
+textarea:focus,
+input[type='text']:focus,
+input[type='submit']:focus {
+	box-shadow: 0 0 5px #914ce0;
+	border: 2px solid #914ce0;
+}
