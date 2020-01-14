@@ -49,5 +49,10 @@ module.exports = {
 			await dropAllCollections();
 			await mongoose.connection.close();
 		});
+	},
+	async restartDB() {
+		console.log('Restarting DB...');
+		await removeAllCollections();
+		await dropAllCollections();
 	}
 };

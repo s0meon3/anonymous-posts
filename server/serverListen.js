@@ -1,8 +1,10 @@
+const path = require('path');
 const app = require('./server');
 const mongoose = require('mongoose');
+const { restartDB } = require('./_tests/test-setup');
 
 //Set config
-require('dotenv').config({ path: '../.env' });
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 //DB Config
 console.log('Getting MongoURI...');
@@ -22,3 +24,6 @@ mongoose
 //Server listen to port
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server listening to port ${port}`));
+
+//Restart DB everyday
+setInterval(restartDB, 86400000);
