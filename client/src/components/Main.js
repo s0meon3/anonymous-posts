@@ -28,7 +28,7 @@ export default class Main extends Component {
 		api
 			.get('/posts')
 			.then(res => this.setState({ content: res.data }))
-			.catch(err => alert(err));
+			.catch(err => console.log(err));
 	}
 
 	toogleShowing = change => {
