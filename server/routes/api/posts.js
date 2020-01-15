@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
 	Post.find()
 		.sort({ date: -1 })
 		.then(posts => res.json(posts));
-	console.log('request');
 });
 
 //@route   POST api/posts
