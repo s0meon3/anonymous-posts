@@ -21,7 +21,7 @@ export default class Main extends Component {
 
 		this.toogleShowing = this.toogleShowing.bind(this);
 		this.postHandler = this.postHandler.bind(this);
-		this.formSubmit = this.postHandler.bind(this);
+		this.addPost = this.addPost.bind(this);
 	}
 
 	componentDidMount() {
@@ -45,15 +45,8 @@ export default class Main extends Component {
 		this.setState({ content: contentCopy });
 	};
 
-	formSubmit = post => {
-		api
-			.post('/posts', {
-				post
-			})
-			.then(res =>
-				this.setState({ content: [res.data, ...this.state.content] })
-			)
-			.catch(err => alert(err));
+	addPost = post => {
+		this.setState({ content: [post, ...this.state.content] });
 	};
 
 	render() {
@@ -76,7 +69,12 @@ export default class Main extends Component {
 								</button>
 							</div>
 						),
-						form: <PostForm onSubmit={this.formSubmit} />,
+						form: (
+							<PostForm
+								toogleShowing={this.toogleShowing}
+								addPost={this.addPost}
+							/>
+						),
 						loading: <Loading />
 					}[this.state.showing]
 				}

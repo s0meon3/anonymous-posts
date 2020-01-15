@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './PostForm.css';
+import api from '../helpers/axiosset';
 
 class PostForm extends Component {
 	constructor(props) {
@@ -17,14 +18,29 @@ class PostForm extends Component {
 	};
 
 	render() {
-		const { formSubmit } = this.props;
+		const { toogleShowing, addPost } = this.props;
 
 		return (
 			<div>
 				<form
-					onSubmit={() =>
-						formSubmit({ title: this.state.title, body: this.state.body })
-					}
+					onSubmit={event => {
+						event.preventDefault();
+						api
+							.post('/posts', {
+								title: this.state.title,
+								body: this.state.body
+							})
+							.then(res => {
+								if (res.data.success === false) {
+									alert(
+										'Something happened... Please, check your form fields.'
+									);
+								} else {
+									toogleShowing('posts');
+									addPost(res.data);
+								}
+							});
+					}}
 				>
 					<label>
 						<input
@@ -35,7 +51,11 @@ class PostForm extends Component {
 						></input>
 					</label>
 					<label>
-						<textarea placeholder='Post text, remember, be nice!'></textarea>
+						<textarea
+							name='body'
+							onChange={this.changeHandler}
+							placeholder='Post text, remember, be nice!'
+						></textarea>
 					</label>
 					<input type='submit' value='Create!' />
 				</form>
