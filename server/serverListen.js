@@ -20,7 +20,7 @@ mongoose
 	})
 	.then(() => {
 		console.log('Connected to MongoDB!');
-		setInterval(restartDB, 10000);
+		setInterval(restartDB, 86400000);
 	})
 	.catch(err => console.log(err));
 
