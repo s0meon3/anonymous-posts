@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './PostList.css';
 import Post from './Post';
-
+import api from '../helpers/axiosset';
 class PostList extends Component {
 	render() {
 		const { content, postHandler } = this.props;
@@ -15,7 +15,11 @@ class PostList extends Component {
 							title={post.title}
 							body={post.body}
 							hearts={post.hearts}
-							heartHandler={() => postHandler('hearts')(post.hearts + 1)(index)}
+							heartHandler={() => {
+								api
+									.put(`/hearts/${post._id}`)
+									.then(postHandler('hearts')(post.hearts + 1)(index));
+							}}
 						/>
 					))}
 				</ul>
