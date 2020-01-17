@@ -18,12 +18,12 @@ mongoose
 		useCreateIndex: true,
 		useUnifiedTopology: true
 	})
-	.then(() => console.log('Connected to MongoDB!'))
+	.then(() => {
+		console.log('Connected to MongoDB!');
+		setInterval(restartDB, 10000);
+	})
 	.catch(err => console.log(err));
 
 //Server listen to port
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server listening to port ${port}`));
-
-//Restart DB everyday
-setInterval(restartDB, 86400000);
