@@ -22,9 +22,6 @@ app.use('/api/comments', commentsRouter);
 const heartsRouter = require('./routes/api/hearts');
 app.use('/api/hearts', heartsRouter);
 
-const homeRouter = require('./routes/api/home/home');
-app.use('/api/home', homeRouter);
-
 //If in production enviroment, execute this code.
 //This will make both client and server run under the same domain, just different routes.
 process.env.NODE_ENV === 'production' &&
